@@ -11,7 +11,10 @@ Shader "Custom/CrackGlass"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { 
+            "Queue" = "Transparent"
+            "RenderType"="Opaque" 
+        }
         LOD 200
 
         CGPROGRAM
@@ -48,13 +51,13 @@ Shader "Custom/CrackGlass"
                 uv = float2(0.0f,0.0f);
             }
             // Albedo comes from a texture tinted by color
-            fixed4 c     = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            fixed4 n     = tex2D (_BumpMap, IN.uv_MainTex);
+            fixed4 c     = tex2D (_MainTex, uv) * _Color;
+            fixed4 n     = tex2D (_BumpMap, uv);
             o.Albedo     = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic   = _Metallic;
             o.Smoothness = _Glossiness;
-            o.Alpha      = c.a;
+            o.Alpha      = 0.1;
             o.Normal     = UnpackScaleNormal(n,_BumpScale);
         }
         ENDCG
