@@ -8,6 +8,7 @@ public class MovableBox : MonoBehaviour
     private Vector3 moveTo;
 
     private bool beRay = false;
+    [SerializeField] Camera _cam;
 
     // Use this for initialization
     void Start()
@@ -37,7 +38,7 @@ public class MovableBox : MonoBehaviour
     {
         Ray ray = new Ray();
         RaycastHit hit = new RaycastHit();
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity) && hit.collider == gameObject.GetComponent<Collider>())
         {
@@ -56,7 +57,7 @@ public class MovableBox : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 10;
 
-        moveTo = GetComponent<Camera>().ScreenToWorldPoint(mousePos);
+        moveTo = _cam.ScreenToWorldPoint(mousePos);
         transform.position = moveTo;
 
     }
