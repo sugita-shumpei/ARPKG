@@ -21,7 +21,7 @@ Shader "Custom/MaskingShader"
                 // Always: このシェーダでレンダリングされたピクセルのステンシルバッファを「対象」とするという意味
                 Comp Always
             // Replace: 「対象」としたステンシルバッファにRefの値を書き込む、という意味
-            Pass Replace
+                Pass Replace
             }
 
 
@@ -53,8 +53,8 @@ Shader "Custom/MaskingShader"
                 return  tex2D (_MainTex, i.uv) * _Color;
             }
             ENDCG
+            }
         }
-        }
-            FallBack "Diffuse"
+        FallBack "Diffuse"
 }
 
