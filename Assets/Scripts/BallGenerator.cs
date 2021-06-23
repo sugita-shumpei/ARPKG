@@ -11,12 +11,13 @@ public class BallGenerator : MonoBehaviour
     [SerializeField]
     GameObject            _baseObject;
     [SerializeField]
+    private Vector3       _localScale;
+    [SerializeField]
     private int           _numObjects = 0;
     [SerializeField]
     private Vector3       _minRange;
     [SerializeField]
     private Vector3       _maxRange;
-    
     void Start()
     {
         _parent     = transform.root.gameObject;
@@ -27,10 +28,10 @@ public class BallGenerator : MonoBehaviour
             randomPosition.x = Random.Range(_minRange.x,_maxRange.x);
             randomPosition.y = Random.Range(_minRange.x,_maxRange.y);
             randomPosition.z = Random.Range(_minRange.x,_maxRange.z);
-            _genObjects[i] = GameObject.Instantiate(_baseObject) as GameObject;
+            _genObjects[i]   = GameObject.Instantiate(_baseObject) as GameObject;
             _genObjects[i].transform.parent        = _baseObject.transform.parent;
             _genObjects[i].transform.localPosition = randomPosition;
-            _genObjects[i].transform.localScale    = new Vector3(0.1f,0.1f,0.1f);
+            _genObjects[i].transform.localScale    = _localScale;
             Debug.Log(randomPosition);
         }
     }

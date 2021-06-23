@@ -745,9 +745,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseObject: {fileID: 1735900794265736206, guid: 726e9574f030faa40aafaa3f2e42b172, type: 3}
+  _localScale: {x: 1, y: 1, z: 1}
   _numObjects: 100
-  _minRange: {x: 0, y: 0, z: 0}
-  _maxRange: {x: 1, y: 0, z: 0}
+  _minRange: {x: -2, y: -2, z: 4}
+  _maxRange: {x: 2, y: 2, z: 4}
 --- !u!1 &1877651776
 GameObject:
   m_ObjectHideFlags: 0
