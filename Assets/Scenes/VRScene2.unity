@@ -705,6 +705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1812907217}
+  - component: {fileID: 1812907218}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -731,6 +732,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812907218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812907216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ed674e069d73c4c90dab03e8d74d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseObject: {fileID: 1735900794265736206, guid: 726e9574f030faa40aafaa3f2e42b172, type: 3}
+  _numObjects: 100
+  _minRange: {x: 0, y: 0, z: 0}
+  _maxRange: {x: 1, y: 0, z: 0}
 --- !u!1 &1877651776
 GameObject:
   m_ObjectHideFlags: 0
