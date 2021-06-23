@@ -13,11 +13,15 @@ public class MovableBox : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        float _CameraRotationY = Camera.main.transform.localEulerAngles.y;
+        print(_CameraRotationY);
+
         if (Input.GetMouseButtonDown(0))
         {
             RayCheck();
@@ -32,6 +36,7 @@ public class MovableBox : MonoBehaviour
         {
             beRay = false;
         }
+
     }
 
     private void RayCheck()
