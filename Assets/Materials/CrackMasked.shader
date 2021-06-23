@@ -1,91 +1,76 @@
-Shader "Custom/CrackMasked"
+Shader "Custom/CrackGlass"
 {
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _BumpMap ("Normal Map",2D) = "bump" {}
         _Glossiness ("Smoothness", Range (0,1)) = 0.5
         _Metallic ("Metallic", Range (0,1)) = 0.0
+        _BumpMap ("Normal Map",2D) = "bump" {}
+        _BumpScale ("Normal Scale",Range (0,1)) = 1.0
     }
-
-        SubShader{
+        SubShader
+        {
             Tags { "RenderType" = "Transparent" "Queue" = "Transparent+1" }
             ZTest Always
 
+            LOD 200
 
-            Pass {
-                // ステンシルバッファの設定
-                Stencil{
+            Stencil{
                 // ステンシルの番号
                 Ref 2
                 // Equal: ステンシルバッファの値がRefと同じであれば描画を行う
                 Comp Equal
-                }
-
-                CGPROGRAM
-                #pragma vertex vert
-                #pragma fragment frag
-                #include "UnityCG.cginc"
-
-                struct appdata {
-                    float4 vertex : POSITION;
-                    float2 uv : TEXCOORD0;
-                    float3 normal : NORMAL;
-                    float4 tangent : TANGENT;
-                };
-                struct v2f {
-                    float2 uv : TEXCOORD0;
-                    float4 vertex : SV_POSITION;
-                    half3 lightDir : TEXCOORD1;
-                    half3 viewDir : TEXCOORD2;
-                };
-
-                float4 _LightColor0;
-                sampler2D _MainTex;
-                sampler2D _BumpMap;
-                float4 _MainTex_ST;
-                
-                float4 _Color;
-
-                v2f vert (appdata v) {
-                    v2f o;
-                    o.vertex = UnityObjectToClipPos (v.vertex);
-                    o.uv = TRANSFORM_TEX (v.uv, _MainTex);
-
-                    TANGENT_SPACE_ROTATION;
-                    o.lightDir = mul (rotation, ObjSpaceLightDir (v.vertex));
-                    o.viewDir = mul (rotation, ObjSpaceViewDir (v.vertex));
-
-                    return o;
-                }
-                half4 frag (v2f i) : SV_Target {
-                    i.lightDir = normalize (i.lightDir);
-                    i.viewDir = normalize (i.viewDir);
-                    half3 halfDir = normalize (i.lightDir + i.viewDir);
-
-                    //Moving uv for Crack animation
-                    float4 st = (_SinTime + float4(1.0,1.0f,1.0f,1.0f)) / 2.0;
-                    float2  uv = i.uv;
-                    if (uv.y > st.w) {
-                        uv = float2(0.0f, 0.0f);
-                    }
-                    //
-                    half3 normal = UnpackNormal (tex2D (_BumpMap, i.uv));
-                    normal = normalize (normal);
-
-                    half3 diffuse = max (0, dot (normal, i.lightDir)) * _LightColor0.rgb;
-                    half3 specular = pow (max (0, dot (normal, halfDir)),  128.0) * _LightColor0.rgb;
-
-                    fixed4 color;
-                    color.rgb = tex2D (_MainTex, i.uv) * diffuse + specular;
-                    color.a = 0;
-                    return color * _Color;
-                }
-                ENDCG
             }
+            CGPROGRAM
+
+
+            // Physically based Standard lighting model, and enable shadows on all light types
+            #pragma surface surf Standard fullforwardshadows
+
+            // Use shader model 3.0 target, to get nicer looking lighting
+            #pragma target 3.0
+
+            sampler2D _MainTex;
+
+            struct Input
+            {
+                float2 uv_MainTex;
+            };
+
+            half      _Glossiness;
+            half      _Metallic;
+            fixed4    _Color;
+            sampler2D _BumpMap;
+            half      _BumpScale;
+            // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
+            // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
+            // #pragma instancing_options assumeuniformscaling
+            UNITY_INSTANCING_BUFFER_START (Props)
+                // put more per-instance properties here
+            UNITY_INSTANCING_BUFFER_END (Props)
+
+            void surf (Input IN, inout SurfaceOutputStandard o)
+            {
+                float4 st = (_SinTime + float4(1.0,1.0f,1.0f,1.0f)) / 2.0;
+                float2  uv = IN.uv_MainTex;
+                if (uv.y > st.w) {
+                    uv = float2(0.0f,0.0f);
+                }
+                // Albedo comes from a texture tinted by color
+                fixed4 c = tex2D (_MainTex, uv) * _Color;
+                fixed4 n = tex2D (_BumpMap, uv);
+                o.Albedo = c.rgb;
+                // Metallic and smoothness come from slider variables
+                o.Metallic = _Metallic;
+                o.Smoothness = _Glossiness;
+                o.Alpha = 0.1;
+                o.Normal = UnpackScaleNormal (n,_BumpScale);
+            }
+            ENDCG
         }
             FallBack "Diffuse"
 }
+
 
 
