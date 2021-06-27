@@ -9,7 +9,7 @@ Shader "Custom/MaskedShader"
     }
 
         SubShader{
-            Tags { "RenderType" = "Transparent" "Queue" = "Transparent+1" }
+            Tags { "RenderType" = "Opaque" "Queue" = "Geometry+1" }
             ZTest Always
 
 
