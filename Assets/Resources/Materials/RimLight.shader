@@ -11,13 +11,19 @@ Shader "Custom/RimLight"
 
     SubShader
     {
-        Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
+        Tags { "RenderType" = "Transparent" "Queue" = "Transparent+1" }
         Pass{
+            Stencil{
+            // ステンシルの番号
+            Ref 2
+            // Equal: ステンシルバッファの値がRefと同じであれば描画を行う
+            Comp Equal
+            }
             ZWrite ON
             ColorMask 0
         }
         
-        Tags { "RenderType" = "Transparent" "Queue" = "Transparent" }
+        Tags { "RenderType" = "Transparent" "Queue" = "Transparent+1" }
         Blend SrcAlpha OneMinusSrcAlpha
         ZWrite OFF
         Pass 
