@@ -16,25 +16,52 @@ public class BallGenerator : MonoBehaviour
     private int           _numMaxObjects = 0;
     [SerializeField]
     private int           _numGenObjects = 0;
-    [SerializeField]
-    private Vector3       _minRange;
-    [SerializeField]
-    private Vector3       _maxRange;
+
+    private GameObject _virtualSphereParent;
+    private float _sideXmaxSize = 4;
+    private float _sideZmaxSize = 4;
+    private float _boxHeight = 4;
+
     void Start()
     {
+        _virtualSphereParent = new GameObject();
+        _virtualSphereParent.name = "VirtualSphereParentObjects";
         _genObjects = new GameObject[_numMaxObjects];
+
+        float virtualBoxScaleX = transform.parent.localScale.x;
+        float virtualBoxScaleZ = transform.parent.localScale.z;
+
+        foreach (Transform child in transform)
+        {
+            if(child.name == "Side_Xp")
+            {
+                _sideXmaxSize = child.position.x;// * virtualBoxScaleX;
+                print("X: " + _sideXmaxSize);
+
+            }
+            else if(child.name == "Side_Zp")
+            {
+                _sideZmaxSize = child.position.z;// * virtualBoxScaleZ;
+                print("Z: " + child.position.z);
+            }
+        }
+        _sideXmaxSize -= .75f;
+        _sideZmaxSize -= .75f;
+        _boxHeight = transform.parent.localScale.y;
     }
     public void GenerateBall(){
+
         int numGenObject = System.Math.Min(_numMaxObjects-_numObjects,_numGenObjects);
         for(int i=0;i<numGenObject;++i){
             Vector3 randomPosition;
-            randomPosition.x                                   = Random.Range(_minRange.x,_maxRange.x);
-            randomPosition.y                                   = Random.Range(_minRange.x,_maxRange.y);
-            randomPosition.z                                   = Random.Range(_minRange.x,_maxRange.z);
+            randomPosition.x                                   = Random.Range(-_sideXmaxSize, _sideXmaxSize);
+            randomPosition.y                                   = Random.Range(_boxHeight + _localScale.y * 2, _boxHeight + _localScale.y * 5);
+            randomPosition.z                                   = Random.Range(- _sideZmaxSize, _sideZmaxSize);
             _genObjects[_numObjects+i]                         = GameObject.Instantiate(_baseObject) as GameObject;
-            _genObjects[_numObjects+i].transform.parent        = _baseObject.transform.parent;
+            _genObjects[_numObjects+i].transform.parent        = _virtualSphereParent.transform;
             _genObjects[_numObjects+i].transform.localPosition = randomPosition;
             _genObjects[_numObjects+i].transform.localScale    = _localScale;
+
             Debug.Log(randomPosition);
         }
         _numObjects = _numObjects + numGenObject;
