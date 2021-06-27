@@ -6,7 +6,7 @@ public class DrawBounds : MonoBehaviour
 {
     private GameObject baseObject;
     private GameObject newBounds;
-    private string materialPass = "Materials/RimLightMaterial";
+    private string materialPath = "Materials/RimLightMaterial";
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +24,8 @@ public class DrawBounds : MonoBehaviour
             newBounds.transform.localScale.z / baseObject.transform.localScale.z
             );
         newBounds.transform.position = baseObject.GetComponent<Collider>().bounds.center;
-        print(Resources.Load<Material>(materialPass));
-        Material[] mat = new Material[1] { Resources.Load<Material>(materialPass) };
+        //print(Resources.Load<Material>(materialPath));
+        Material[] mat = new Material[1] { Resources.Load<Material>(materialPath) };
         newBounds.GetComponent<MeshRenderer>().materials = mat;
 
     }

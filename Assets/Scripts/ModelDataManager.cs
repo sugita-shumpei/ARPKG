@@ -6,15 +6,16 @@ using System;
 
 public static class ModelDataManager 
 {
-    private static string getFilePath() { return Application.persistentDataPath + "/ModelTransformData" + ".json"; }
+    //Application.persistentDataPath
+    private static string GetFilePath() { return  "Assets/Resources/ModelTransformData" + ".json"; }
     public static void Save(TransformDataWrapper transformDataWrapper)
     {
         //シリアライズ実行
         string jsonSerializedData = JsonUtility.ToJson(transformDataWrapper);
-        Debug.Log(jsonSerializedData);
+        Debug.Log("SAVE RESULT: " + jsonSerializedData);
 
         //実際にファイル作って書き込む
-        using (var sw = new StreamWriter(getFilePath(), false))
+        using (var sw = new StreamWriter(GetFilePath(), false))
         {
             try
             {
@@ -35,11 +36,11 @@ public static class ModelDataManager
         try
         {
             //ファイルを読み込む
-            using (FileStream fs = new FileStream(getFilePath(), FileMode.Open))
+            using (FileStream fs = new FileStream(GetFilePath(), FileMode.Open))
             using (StreamReader sr = new StreamReader(fs))
             {
                 string result = sr.ReadToEnd();
-                Debug.Log(result);
+                Debug.Log("LOAD RESULT :" + result);
 
                 //読み込んだJsonを構造体にぶちこむ
                 jsonDeserializedData = JsonUtility.FromJson<TransformDataWrapper>(result);
