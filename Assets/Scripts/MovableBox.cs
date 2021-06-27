@@ -52,6 +52,7 @@ public class MovableBox : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
             beRay = false;
         }
 
