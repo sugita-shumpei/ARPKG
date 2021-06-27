@@ -45,8 +45,8 @@ public class BallGenerator : MonoBehaviour
                 print("Z: " + child.position.z);
             }
         }
-        _sideXmaxSize -= _localScale.x * 3;
-        _sideZmaxSize -= _localScale.z * 3;
+        _sideXmaxSize -= _localScale.x * 3.5f;
+        _sideZmaxSize -= _localScale.z * 3.5f;
         _boxHeight = transform.parent.localScale.y;
     }
     public void GenerateBall(){
@@ -55,7 +55,7 @@ public class BallGenerator : MonoBehaviour
         for(int i=0;i<numGenObject;++i){
             Vector3 randomPosition;
             randomPosition.x                                   = Random.Range(-_sideXmaxSize, _sideXmaxSize);
-            randomPosition.y                                   = Random.Range(_boxHeight + _localScale.y * 2, _boxHeight + _localScale.y * 6);
+            randomPosition.y                                   = Random.Range(_boxHeight + _localScale.y, _boxHeight + _localScale.y * 20);
             randomPosition.z                                   = Random.Range(- _sideZmaxSize, _sideZmaxSize);
             _genObjects[_numObjects+i]                         = GameObject.Instantiate(_baseObject) as GameObject;
             _genObjects[_numObjects+i].transform.parent        = _virtualSphereParent.transform;
