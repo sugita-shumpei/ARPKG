@@ -22,6 +22,12 @@ Shader "Custom/RimLight"
         ZWrite OFF
         Pass 
         {
+            Stencil{
+            // ステンシルの番号
+            Ref 2
+            // Equal: ステンシルバッファの値がRefと同じであれば描画を行う
+            Comp Equal
+            }
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
