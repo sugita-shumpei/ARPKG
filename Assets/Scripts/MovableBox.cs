@@ -5,9 +5,11 @@ using UnityEngine;
 public class MovableBox : MonoBehaviour
 {
 
-    private Vector3 moveTo;
+    Ray ray = new Ray();
 
     private bool beRay = false;
+    private float depth = 0;
+    private float distance = 0;
     [SerializeField] Camera _cam;
 
     // Use this for initialization
@@ -38,10 +40,9 @@ public class MovableBox : MonoBehaviour
 
         }
 
-        float depth = 0;
         if (Input.GetMouseButtonDown(0))
         {
-            depth = RayGetObjectDepth();
+            RayGetObjectDepth();
         }
 
         if (beRay)
@@ -56,24 +57,25 @@ public class MovableBox : MonoBehaviour
 
     }
 
-    private float RayGetObjectDepth()
+    private void RayGetObjectDepth()
     {
-        Ray ray = new Ray();
+        print("Position : " + transform.position);
+
         RaycastHit hit = new RaycastHit();
         ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity) && hit.collider == gameObject.GetComponent<Collider>())
         {
             beRay = true;
+            distance = Vector3.Distance(_cam.transform.position, hit.collider.transform.position);
+
             if (isCamLookingX)
             {
-                print(gameObject.transform.position);
-                return gameObject.transform.position.x;
+                depth = transform.position.x;
             }
             else
             {
-
-                return gameObject.transform.position.z;
+                depth = transform.position.z;
             }
             
         }
@@ -82,26 +84,39 @@ public class MovableBox : MonoBehaviour
             beRay = false;
         }
 
-        return 0;
     }
 
     private void MovePoisition(float depth)
     {
-        Vector3 mousePos;
-        mousePos = Input.mousePosition;
-
-        mousePos = _cam.ScreenToWorldPoint(mousePos);
-        print(mousePos);
+        Vector3 mousePos = Input.mousePosition;
+        ray = _cam.ScreenPointToRay(Input.mousePosition);
+        Vector3 rayDestination;
         if (isCamLookingX)
         {
+            rayDestination = ray.origin + (depth - ray.origin.x) / ray.direction.x * ray.direction;
+        } else
+        {
+            rayDestination = ray.origin + (depth - ray.origin.z) / ray.direction.z * ray.direction;
+        }
+        distance = Vector3.Distance(_cam.transform.position, rayDestination);
+        mousePos.z = distance;
+        mousePos = _cam.ScreenToWorldPoint(mousePos);
+        
+
+        if (isCamLookingX)
+        {
+            print("X : " + depth);
+
             mousePos.x = depth;
         }
         else
         {
+            print("Z : " + depth);
+
             mousePos.z = depth;
         }
         
-        transform.position = moveTo;
+        transform.position = mousePos;
 
     }
 }
