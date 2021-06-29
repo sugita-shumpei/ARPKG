@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class MenuUIManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class MenuUIManager : MonoBehaviour
 
     public Button[] GetAssignedButtons()
     {
-        while (_listbuttons == null) ;
+        while (_listbuttons.Any()) ;
         return _listbuttons;
     }
 
@@ -30,6 +31,7 @@ public class MenuUIManager : MonoBehaviour
 
         Transform list = _scrollViewContent.transform;
         _listbuttons = new Button[_prefabs.Length];
+        
         for (int i = 0; i < _prefabs.Length; i++)
         {
             GameObject listButtonGb = Instantiate(_addObjectButton) as GameObject;
@@ -38,6 +40,8 @@ public class MenuUIManager : MonoBehaviour
             listButtonGb.transform.SetParent(list);
             listButtonGb.transform.Find("Object Name Text").GetComponent<Text>().text = _prefabs[i].name;
         }
+        
+
         _addObjectScrollView.SetActive(_isVisible);
         _panel.SetActive(_isVisible);
 

@@ -20,7 +20,7 @@ public class ObjectGenerator : MonoBehaviour
         _buttons = await Task.Run(() => {
             return a.GetAssignedButtons();
         });
-
+        
         for (int i = 0; i < _prefabs.Length; i++)
         {
             //This "ci" is necessary due to the process of AddListener
