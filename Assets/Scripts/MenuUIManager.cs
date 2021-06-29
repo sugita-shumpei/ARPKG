@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +14,14 @@ public class MenuUIManager : MonoBehaviour
 
     private GameObject[] _prefabs;
     private Sprite[] _prefabImages;
+    private Button[] _listbuttons;
     private bool _isVisible = false;
+
+    public Button[] GetAssignedButtons()
+    {
+        while (_listbuttons == null) ;
+        return _listbuttons;
+    }
 
     void Start()
     {
@@ -20,12 +29,14 @@ public class MenuUIManager : MonoBehaviour
         _prefabImages = Resources.LoadAll<Sprite>("Images/Objects");
 
         Transform list = _scrollViewContent.transform;
+        _listbuttons = new Button[_prefabs.Length];
         for (int i = 0; i < _prefabs.Length; i++)
         {
-            GameObject listButton = Instantiate(_addObjectButton) as GameObject;
+            GameObject listButtonGb = Instantiate(_addObjectButton) as GameObject;
+            _listbuttons[i] = listButtonGb.GetComponent<Button>();
 
-            listButton.transform.SetParent(list);
-            listButton.transform.Find("Object Name Text").GetComponent<Text>().text = _prefabs[i].name;
+            listButtonGb.transform.SetParent(list);
+            listButtonGb.transform.Find("Object Name Text").GetComponent<Text>().text = _prefabs[i].name;
         }
         _addObjectScrollView.SetActive(_isVisible);
         _panel.SetActive(_isVisible);
