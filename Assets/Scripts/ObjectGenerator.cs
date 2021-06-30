@@ -39,17 +39,20 @@ public class ObjectGenerator : MonoBehaviour
     {
         
         GameObject obj = Instantiate(gb);
-        obj.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | 
+        obj.GetComponent<Rigidbody>().constraints = 
+            RigidbodyConstraints.FreezeRotationX | 
             RigidbodyConstraints.FreezeRotationY | 
             RigidbodyConstraints.FreezeRotationZ;
-        obj.transform.localScale = new Vector3(
-            obj.transform.localScale.x * _objectScaleScalar,
-            obj.transform.localScale.y * _objectScaleScalar,
-            obj.transform.localScale.z * _objectScaleScalar
-            );
         obj.transform.parent = _objParent;
+        obj.transform.localScale = new Vector3(
+            1 * _objectScaleScalar,
+            1 * _objectScaleScalar,
+            1 * _objectScaleScalar
+            );
         obj.transform.localPosition = new Vector3(0, 0, 0);
-        obj.GetComponent<DrawBounds>()._boxSize = _objParent.parent.localScale;
+        Vector3 scale = _objParent.parent.localScale;
+        obj.GetComponent<DrawBounds>()._boxSize = scale;
+
         if(obj.GetComponent<Rigidbody>() == null)
         {
             obj.AddComponent<Rigidbody>();
