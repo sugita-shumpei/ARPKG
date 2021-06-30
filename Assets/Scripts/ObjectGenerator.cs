@@ -12,7 +12,7 @@ public class ObjectGenerator : MonoBehaviour
     [SerializeField] private Transform _objParent;
     private GameObject[] _prefabs;
     private Button[] _buttons;
-    public  Camera _cam;
+
     private async void Start()
     {
         _prefabs = Resources.LoadAll<GameObject>("Prefabs");
@@ -44,7 +44,6 @@ public class ObjectGenerator : MonoBehaviour
             obj.AddComponent<Rigidbody>();
         }
         obj.GetComponent<Rigidbody>().useGravity = false;
-        obj.GetComponent<MovableBox>()._cam      = _cam;
 
     }
 }
