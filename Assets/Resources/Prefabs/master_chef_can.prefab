@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 4513336598700778970}
   - component: {fileID: 1118913164826067278}
   - component: {fileID: 8096483496483771340}
+  - component: {fileID: -2678003225824390642}
+  - component: {fileID: -8195057372116861228}
+  - component: {fileID: 6400917467901038597}
   m_Layer: 0
   m_Name: master_chef_can
   m_TagString: Untagged
@@ -96,3 +99,44 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.10763169, y: 0.10895252, z: 0.13219622}
   m_Center: {x: 0.008806248, y: 0.015973553, z: 0.07196893}
+--- !u!114 &-2678003225824390642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549044094319218603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7ec186565231f419259dce32132940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cam: {fileID: 0}
+--- !u!114 &-8195057372116861228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549044094319218603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74207255e314e1f4ba993a026264b152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &6400917467901038597
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549044094319218603}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
