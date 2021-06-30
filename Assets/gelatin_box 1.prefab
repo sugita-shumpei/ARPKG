@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4002081843884844945}
   - component: {fileID: -5864893053431955544}
   m_Layer: 0
-  m_Name: gelatin_box
+  m_Name: gelatin_box 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

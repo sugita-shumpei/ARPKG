@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2091082299516025619}
   - component: {fileID: -6659997587109649390}
   - component: {fileID: -964217121037191635}
+  - component: {fileID: -8934569957317538694}
+  - component: {fileID: 256264116229536068}
   m_Layer: 0
   m_Name: potted_meat_can
   m_TagString: Untagged
@@ -126,3 +128,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
+--- !u!65 &-8934569957317538694
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681912696211941282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09903769, y: 0.09343299, z: 0.076192275}
+  m_Center: {x: -0.0014920494, y: 0.011991697, z: 0.043966956}
+--- !u!65 &256264116229536068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681912696211941282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09903769, y: 0.09343299, z: 0.076192275}
+  m_Center: {x: -0.0014920494, y: 0.011991697, z: 0.043966956}
