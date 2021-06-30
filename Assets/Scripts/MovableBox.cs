@@ -11,7 +11,7 @@ public class MovableBox : MonoBehaviour
     private bool beRay = false;
     private float depth = 0;
     private float distance = 0;
-    [SerializeField] Camera _cam;
+    [SerializeField] public Camera _cam;
 
     // Use this for initialization
     void Start()
@@ -23,7 +23,7 @@ public class MovableBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float _CameraRotationY = Camera.main.transform.localEulerAngles.y;
+        float _CameraRotationY = _cam.transform.localEulerAngles.y;
         if( 
             (45 <=_CameraRotationY && _CameraRotationY < 135) ||
             (225 <= _CameraRotationY && _CameraRotationY < 315)

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ModelDataUse : MonoBehaviour
 {
     [SerializeField] private Transform _modelParent;
+    [SerializeField] private Camera _cam;
     private string prefabPath = "Prefabs/";
 
     public void Save()
@@ -37,14 +38,13 @@ public class ModelDataUse : MonoBehaviour
         foreach(TransformData transformData in transformDataWrapper.DataList )
         {
             //Instantiate from Path
-            GameObject loadedModel = Resources.Load<GameObject>(prefabPath + transformData.name);
-            GameObject prefab = Instantiate(loadedModel);
+            GameObject loadedModel      = Resources.Load<GameObject>(prefabPath + transformData.name);
+            GameObject prefab           = Instantiate(loadedModel);
             //Set Data
-            prefab.transform.position = transformData.position;
+            prefab.transform.position   = transformData.position;
             prefab.transform.localScale = transformData.Scale;
-
-
-            prefab.transform.parent = _modelParent;
+            prefab.transform.parent     = _modelParent;
+            prefab.transform.parent.GetComponent<MovableBox>()._cam = _cam;
         }
     }
 
