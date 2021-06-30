@@ -6,6 +6,8 @@ using UnityEngine;
 public class ModelDataUse : MonoBehaviour
 {
     [SerializeField] private Transform _modelParent;
+    [SerializeField] private Camera _cam;
+
     private string prefabPath = "Prefabs/";
 
     public void Save()
@@ -42,6 +44,7 @@ public class ModelDataUse : MonoBehaviour
             //Set Data
             prefab.transform.position = transformData.position;
             prefab.transform.localScale = transformData.Scale;
+            prefab.GetComponent<MovableBox>()._cam = _cam;
 
 
             prefab.transform.parent = _modelParent;

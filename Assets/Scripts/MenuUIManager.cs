@@ -13,6 +13,7 @@ public class MenuUIManager : MonoBehaviour
     [SerializeField] GameObject _addObjectScrollView;
     [SerializeField] GameObject _addObjectButton;
 
+
     private GameObject[] _prefabs;
     private Sprite[] _prefabImages;
     private Button[] _listbuttons;

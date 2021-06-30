@@ -708,13 +708,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877651776}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 14, z: 0}
+  m_LocalRotation: {x: 0.6631763, y: 0.24535125, z: 0.24535125, w: 0.6631763}
+  m_LocalPosition: {x: -6.06, y: 14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 49.395, y: 90, z: 90}
 --- !u!114 &2076016787 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6437854377331778796, guid: a1c4c961ec378a947ad6ad129a8225f1, type: 3}
@@ -954,10 +954,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2076016787}
+    - target: {fileID: 2891817742119395826, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: _cam
+      value: 
+      objectReference: {fileID: 1877651778}
+    - target: {fileID: 2891817742119395827, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: _cam
+      value: 
+      objectReference: {fileID: 1877651778}
     - target: {fileID: 2891817742119395827, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
       propertyPath: _objParent
       value: 
       objectReference: {fileID: 2076016788}
+    - target: {fileID: 2891817742119395827, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: _objectScaleScalar
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2891817742673935947, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1023,6 +1035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AR Box
       objectReference: {fileID: 0}
+    - target: {fileID: 6437854377331778796, guid: a1c4c961ec378a947ad6ad129a8225f1, type: 3}
+      propertyPath: _cam
+      value: 
+      objectReference: {fileID: 1877651778}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c4c961ec378a947ad6ad129a8225f1, type: 3}
 --- !u!1001 &7006539482406949942

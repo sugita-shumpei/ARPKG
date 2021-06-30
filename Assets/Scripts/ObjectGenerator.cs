@@ -10,6 +10,8 @@ using System.Linq;
 public class ObjectGenerator : MonoBehaviour
 {
     [SerializeField] private Transform _objParent;
+    [SerializeField] private float _objectScaleScalar = 1;
+    [SerializeField] private Camera _cam;
     private GameObject[] _prefabs;
     private Button[] _buttons;
 
@@ -35,8 +37,13 @@ public class ObjectGenerator : MonoBehaviour
 
     private void GenerateObject(GameObject gb)
     {
-        print(gb);
+        
         GameObject obj = Instantiate(gb);
+        obj.transform.localScale = new Vector3(
+            obj.transform.localScale.x * _objectScaleScalar,
+            obj.transform.localScale.y * _objectScaleScalar,
+            obj.transform.localScale.z * _objectScaleScalar
+            );
         obj.transform.parent = _objParent;
         obj.transform.localPosition = new Vector3(0, 0, 0);
         obj.GetComponent<DrawBounds>()._boxSize = _objParent.parent.localScale;
@@ -45,6 +52,7 @@ public class ObjectGenerator : MonoBehaviour
             obj.AddComponent<Rigidbody>();
         }
         obj.GetComponent<Rigidbody>().useGravity = false;
+        obj.GetComponent<MovableBox>()._cam = _cam;
 
     }
 }
