@@ -214,6 +214,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 16660432884179117, guid: a1c4c961ec378a947ad6ad129a8225f1, type: 3}
   m_PrefabInstance: {fileID: 131028615}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &131028617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6437854377331778796, guid: a1c4c961ec378a947ad6ad129a8225f1, type: 3}
+  m_PrefabInstance: {fileID: 131028615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57daab0ce88ca647be9e57c91074a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!21 &327735542
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'MoelenMaterial
+
+    38392'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d3cb1ce1296d4fbcb94798c4a82f8b9e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &478545794
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,36 +332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ed674e069d73c4c90dab03e8d74d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &795599214
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'MoelenMaterial
-
-    35102'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d3cb1ce1296d4fbcb94798c4a82f8b9e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &1116970530
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,10 +570,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2891817741958763813, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 131028617}
+    - target: {fileID: 2891817741958763813, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Load
+      objectReference: {fileID: 0}
     - target: {fileID: 2891817742119395827, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
       propertyPath: _objParent
       value: 
       objectReference: {fileID: 9094322}
+    - target: {fileID: 2891817742673935947, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 131028617}
+    - target: {fileID: 2891817742673935947, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 2891817743172614830, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 131028617}
+    - target: {fileID: 2891817743172614830, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Save
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5a924485fca2ab418fa8ecb4dae7413, type: 3}
 --- !u!43 &1324951773
@@ -778,7 +813,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 795599214}
+  - {fileID: 327735542}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

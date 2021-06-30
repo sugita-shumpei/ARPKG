@@ -7,6 +7,7 @@ public class MovableBox : MonoBehaviour
 
     Ray ray = new Ray();
 
+    private bool useGravity = false;
     private bool beRay = false;
     private float depth = 0;
     private float distance = 0;
@@ -52,8 +53,13 @@ public class MovableBox : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
             beRay = false;
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = !useGravity;
+
         }
 
     }
