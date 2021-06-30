@@ -39,6 +39,7 @@ public class ObjectGenerator : MonoBehaviour
         GameObject obj = Instantiate(gb);
         obj.transform.parent = _objParent;
         obj.transform.localPosition = new Vector3(0, 0, 0);
+        obj.GetComponent<DrawBounds>()._boxSize = _objParent.parent.localScale;
         if(obj.GetComponent<Rigidbody>() == null)
         {
             obj.AddComponent<Rigidbody>();
