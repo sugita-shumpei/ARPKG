@@ -20,7 +20,7 @@ public class MenuUIManager : MonoBehaviour
 
     public Button[] GetAssignedButtons()
     {
-        while (_listbuttons.Any()) ;
+        while (_listbuttons == null) ;
         return _listbuttons;
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class DrawBounds : MonoBehaviour
 {
     private GameObject baseObject;
@@ -11,11 +12,13 @@ public class DrawBounds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (transform.childCount > 0) return;
         baseObject = gameObject;
         newBounds = GameObject.CreatePrimitive(PrimitiveType.Cube);
         var boundsCollider = newBounds.GetComponent<Collider>();
         Destroy(boundsCollider);
-        
+
+        newBounds.name = "Visualized AABB";
         newBounds.transform.parent = baseObject.transform;
         newBounds.transform.localScale = baseObject.GetComponent<Collider>().bounds.size;
         newBounds.transform.localScale = new Vector3(
