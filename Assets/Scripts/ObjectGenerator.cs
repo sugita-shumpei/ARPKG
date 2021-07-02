@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObjectGenerator : MonoBehaviour
 {
     private Transform _objParent;
-    [SerializeField] private float _objectScaleScalar = 1;
+    [SerializeField] public float _objectScaleScalar = 1;
     private MaterialChanger _mtChanger;
     private Camera _cam;
 
