@@ -60,7 +60,7 @@ public struct TransformData
 {
     public string name;
     public Vector3 position;
-    public Vector3 Scale;
+    public Vector3 scale;
 }
 public class TransformDataWrapper
 {

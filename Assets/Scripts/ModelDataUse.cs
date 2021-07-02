@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class ModelDataUse : MonoBehaviour
 {
-    [SerializeField] private Transform _modelParent;
-    [SerializeField] private Camera _cam;
+    [SerializeField] private Transform _rootParentBox;
+    [SerializeField] private ObjectGenerator _objGen;
+
 
     private string prefabPath = "Prefabs/";
 
@@ -15,12 +16,12 @@ public class ModelDataUse : MonoBehaviour
         TransformDataWrapper transformDataWrapper = new TransformDataWrapper();
         TransformData transformData = new TransformData();
 
-        foreach (Transform child in _modelParent.transform)
+        foreach (Transform child in _rootParentBox.transform)
         {
             //Prefab Name
             transformData.name = child.name;
             transformData.position = child.position;
-            transformData.Scale = child.localScale;
+            transformData.scale = child.localScale;
 
             PrefabUtility.SaveAsPrefabAsset(child.gameObject, "Assets/Resources/" + prefabPath + child.name + ".prefab");
 
@@ -38,22 +39,14 @@ public class ModelDataUse : MonoBehaviour
         
         foreach(TransformData transformData in transformDataWrapper.DataList )
         {
-            //Instantiate from Path
             GameObject loadedModel = Resources.Load<GameObject>(prefabPath + transformData.name);
-            GameObject prefab = Instantiate(loadedModel);
-            //Set Data
-            prefab.transform.position = transformData.position;
-            prefab.transform.localScale = transformData.Scale;
-            prefab.GetComponent<MovableBox>()._cam = _cam;
-
-
-            prefab.transform.parent = _modelParent;
+            _objGen.GenerateObject(loadedModel, transformData.position, transformData.scale);
         }
     }
 
     public void Reset()
     {
-        foreach(Transform model in _modelParent.transform)
+        foreach(Transform model in _rootParentBox.transform)
         {
             Destroy(model.gameObject);
         }
