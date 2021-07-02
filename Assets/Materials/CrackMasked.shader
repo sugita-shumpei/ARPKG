@@ -1,4 +1,4 @@
-Shader "Custom/CrackGlass"
+Shader "Custom/CrackMasked"
 {
     Properties
     {

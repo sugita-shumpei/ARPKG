@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Attach this script to the transform which will compile and manage the objects.
+[RequireComponent(typeof(MaterialChanger))]
 public class ObjectGenerator : MonoBehaviour
 {
     private Transform _objParent;
     [SerializeField] private float _objectScaleScalar = 1;
+    private MaterialChanger _mtChanger;
     private Camera _cam;
+
+    private void Awake()
+    {
+        _mtChanger = GetComponent<MaterialChanger>();
+    }
 
     public void GenerateObject(GameObject gb)
     {
@@ -15,10 +21,10 @@ public class ObjectGenerator : MonoBehaviour
         _objParent = transform;
 
         GameObject obj = Instantiate(gb);
+        obj.name = gb.name;
         obj.transform.parent = _objParent;
-        obj.transform.localPosition = new Vector3(0, 0, 0);
 
-        
+        obj.transform.localPosition = new Vector3(0, 0, 0);
         obj.transform.localScale = new Vector3(
             1 * _objectScaleScalar,
             1 * _objectScaleScalar,
@@ -41,6 +47,7 @@ public class ObjectGenerator : MonoBehaviour
 
         obj.GetComponent<MovableBox>()._cam = _cam;
 
+        _mtChanger.UpdateChangingMaterialObjects();
     }
 
     public void GenerateObject(GameObject gb, Vector3 position, Vector3 scale)
@@ -49,6 +56,7 @@ public class ObjectGenerator : MonoBehaviour
         _objParent = transform;
 
         GameObject obj = Instantiate(gb);
+        obj.name = gb.name;
         obj.transform.parent = _objParent;
 
         obj.transform.position = position;
@@ -69,5 +77,7 @@ public class ObjectGenerator : MonoBehaviour
 
 
         obj.GetComponent<MovableBox>()._cam = _cam;
+
+        _mtChanger.UpdateChangingMaterialObjects();
     }
 }

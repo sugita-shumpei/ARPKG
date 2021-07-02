@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 9268546005642922}
   - component: {fileID: -7067106248855006064}
   m_Layer: 0
-  m_Name: Wineglass
-  m_TagString: Untagged
+  m_Name: wineglass
+  m_TagString: Fragile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
