@@ -9,7 +9,7 @@ Shader "Custom/MaskingShader"
     }
 
         SubShader{
-            Tags { "RenderType" = "Opaque" "Queue" = "Geometry"}
+            Tags { "RenderType" = "Transparent" "Queue" = "Transparent"}
             ZWrite Off
             Blend SrcAlpha OneMinusSrcAlpha
 
