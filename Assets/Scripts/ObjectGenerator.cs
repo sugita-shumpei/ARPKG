@@ -25,8 +25,8 @@ public class ObjectGenerator : MonoBehaviour
             1 * _objectScaleScalar
             );
 
-        Vector3 scale = _objParent.parent.localScale;
-        obj.GetComponent<DrawBounds>()._boxSize = scale;
+        Vector3 arBoxScale = _objParent.parent.localScale;
+        obj.GetComponent<DrawBounds>()._boxSize = arBoxScale;
 
         if (obj.GetComponent<Rigidbody>() == null)
         {
@@ -40,6 +40,7 @@ public class ObjectGenerator : MonoBehaviour
 
 
         obj.GetComponent<MovableBox>()._cam = _cam;
+
     }
 
     public void GenerateObject(GameObject gb, Vector3 position, Vector3 scale)
