@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -615804803052989816}
   m_Layer: 0
   m_Name: tuna_fish_can
-  m_TagString: Untagged
+  m_TagString: ObjectsInModelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

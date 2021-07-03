@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2022569895}
   m_Layer: 0
   m_Name: TESTER2
-  m_TagString: Untagged
+  m_TagString: ObjectsInModelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
