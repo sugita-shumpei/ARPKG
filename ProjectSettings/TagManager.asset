@@ -6,6 +6,7 @@ TagManager:
   tags:
   - VirtualSphere
   - ObjectsInModelManager
+  - Particle
   layers:
   - Default
   - TransparentFX
