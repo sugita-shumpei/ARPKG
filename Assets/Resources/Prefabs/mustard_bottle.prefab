@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6359631842494442893}
   - component: {fileID: -1288506808599796903}
   - component: {fileID: -2097831500280804970}
+  - component: {fileID: 5186341035523346050}
   m_Layer: 0
   m_Name: mustard_bottle
   m_TagString: ObjectsInModelManager
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4541116563490333544}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &7594275506921916697
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxSize: {x: 1, y: 1, z: 1}
+--- !u!65 &5186341035523346050
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541116563490333544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08548439, y: 0.09601219, z: 0.18516716}
+  m_Center: {x: -0.005292199, y: -0.0072782, z: 0.0984544}

@@ -15,6 +15,10 @@ public class DrawBounds : MonoBehaviour
         {
             for(int i = 0; i < transform.childCount; i++)
             {
+                if (transform.GetChild(i).gameObject.CompareTag("Particle"))
+                {
+                    continue;
+                }
                 Destroy(transform.GetChild(i).gameObject);
             }
 

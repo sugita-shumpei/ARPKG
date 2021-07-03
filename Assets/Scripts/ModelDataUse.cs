@@ -23,7 +23,7 @@ public class ModelDataUse : MonoBehaviour
             transformData.position = child.position;
             transformData.scale = child.localScale;
 
-            PrefabUtility.SaveAsPrefabAsset(child.gameObject, "Assets/Resources/" + prefabPath + child.name + ".prefab");
+            //PrefabUtility.SaveAsPrefabAsset(child.gameObject, "Assets/Resources/" + prefabPath + child.name + ".prefab");
 
             transformDataWrapper.DataList.Add(transformData);
         }
