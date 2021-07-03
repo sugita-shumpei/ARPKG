@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1664289545511720817}
   - component: {fileID: -1679810720162686759}
   m_Layer: 0
-  m_Name: tomoto_soup_can
+  m_Name: tomato_soup_can
   m_TagString: ObjectsInModelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
