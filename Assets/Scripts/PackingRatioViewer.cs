@@ -17,9 +17,9 @@ public class PackingRatioViewer : MonoBehaviour
     {
         _objGenerator = _modelManager.GetComponent<ObjectGenerator>();
         _arBoxTransform = _modelManager.parent;
-        _sizeOfARBox = _arBoxTransform.localScale.x
-            * _arBoxTransform.localScale.y 
-            * _arBoxTransform.localScale.z;
+        _sizeOfARBox = (_arBoxTransform.localScale.x - .05f)
+            * (_arBoxTransform.localScale.y - .05f)
+            * (_arBoxTransform.localScale.z -.05f);
         print(_sizeOfARBox);
     }
 

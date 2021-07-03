@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6400917467901038597}
   m_Layer: 0
   m_Name: master_chef_can
-  m_TagString: Untagged
+  m_TagString: ObjectsInModelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74207255e314e1f4ba993a026264b152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxSize: {x: 1, y: 1, z: 1}
 --- !u!54 &6400917467901038597
 Rigidbody:
   m_ObjectHideFlags: 0

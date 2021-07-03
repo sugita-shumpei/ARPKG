@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2097831500280804970}
   m_Layer: 0
   m_Name: mustard_bottle
-  m_TagString: Untagged
+  m_TagString: ObjectsInModelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74207255e314e1f4ba993a026264b152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxSize: {x: 1, y: 1, z: 1}

@@ -7,7 +7,8 @@ public class DeleteOnHit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("VirtualSphere"))
+        if (collision.gameObject.CompareTag("VirtualSphere") 
+            || collision.gameObject.CompareTag("ObjectsInModelManager"))
         {
             Destroy(collision.gameObject);
 

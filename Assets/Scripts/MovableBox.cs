@@ -5,19 +5,19 @@ using UnityEngine;
 public class MovableBox : MonoBehaviour
 {
 
-    Ray ray = new Ray();
-
     private bool useGravity = false;
     private bool beRay = false;
     private float depth = 0;
     private float distance = 0;
 
+    private Ray _ray;
+
     public Camera _cam;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-
+        _ray = new Ray();
     }
 
     private bool isCamLookingX;
@@ -67,12 +67,12 @@ public class MovableBox : MonoBehaviour
 
     private void RayGetObjectDepth()
     {
-        print("Position : " + transform.position);
+        //print("Position : " + transform.position);
 
         RaycastHit hit = new RaycastHit();
-        ray = _cam.ScreenPointToRay(Input.mousePosition);
+        _ray = _cam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity) && hit.collider == gameObject.GetComponent<Collider>())
+        if (Physics.Raycast(_ray.origin, _ray.direction, out hit, Mathf.Infinity) && hit.collider == gameObject.GetComponent<Collider>())
         {
             beRay = true;
             distance = Vector3.Distance(_cam.transform.position, hit.collider.transform.position);
@@ -97,14 +97,14 @@ public class MovableBox : MonoBehaviour
     private void MovePoisition(float depth)
     {
         Vector3 mousePos = Input.mousePosition;
-        ray = _cam.ScreenPointToRay(Input.mousePosition);
+        _ray = _cam.ScreenPointToRay(Input.mousePosition);
         Vector3 rayDestination;
         if (isCamLookingX)
         {
-            rayDestination = ray.origin + (depth - ray.origin.x) / ray.direction.x * ray.direction;
+            rayDestination = _ray.origin + (depth - _ray.origin.x) / _ray.direction.x * _ray.direction;
         } else
         {
-            rayDestination = ray.origin + (depth - ray.origin.z) / ray.direction.z * ray.direction;
+            rayDestination = _ray.origin + (depth - _ray.origin.z) / _ray.direction.z * _ray.direction;
         }
         distance = Vector3.Distance(_cam.transform.position, rayDestination);
         mousePos.z = distance;
@@ -113,13 +113,13 @@ public class MovableBox : MonoBehaviour
 
         if (isCamLookingX)
         {
-            print("X : " + depth);
+            //print("X : " + depth);
 
             mousePos.x = depth;
         }
         else
         {
-            print("Z : " + depth);
+            //print("Z : " + depth);
 
             mousePos.z = depth;
         }
