@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3553710720764963526}
   - component: {fileID: 9268546005642922}
   - component: {fileID: -7067106248855006064}
+  - component: {fileID: 6017564799129780040}
   m_Layer: 0
   m_Name: wineglass
   m_TagString: ObjectsInModelManager
@@ -110,3 +111,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxSize: {x: 1, y: 1, z: 1}
+--- !u!65 &6017564799129780040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049409060452354835}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04592416, y: 0.124529496, z: 0.04592416}
+  m_Center: {x: 0, y: 0.056500934, z: 0}
